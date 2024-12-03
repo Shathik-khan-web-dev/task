@@ -17,6 +17,7 @@ const leaveSchema = new mongoose.Schema({
   comments: {
     type: String,
     default: "",
+    required: true,
   },
 });
 

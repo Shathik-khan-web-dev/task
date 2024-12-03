@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const EmployeeModel = require("../Model/EmployeeModel");
 
-// Get employees data
 router.get("/employee", async (req, res) => {
   try {
     const employee = await EmployeeModel.findOne();
@@ -53,12 +52,10 @@ router.get("/employee", async (req, res) => {
       data: response,
     });
   } catch (error) {
-    console.error(error);
     res.status(500).send({ success: false, message: "An error occurred." });
   }
 });
 
-// Post employees data
 router.post("/employee/apply-leave", async (req, res) => {
   try {
     const { type, startDate, endDate, comments } = req.body;
@@ -87,7 +84,6 @@ router.post("/employee/apply-leave", async (req, res) => {
 
     res.send({ success: true, message: "Leave applied successfully!" });
   } catch (error) {
-    console.error(error);
     res.status(500).send({
       success: false,
       message: "An error occurred while applying for leave.",

@@ -17,6 +17,7 @@ const LeaveForm = ({ closeModal, onLeaveApplied }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (form.comments.trim() === "") {
       toast.error("Comments are required.");
       return;
@@ -25,7 +26,6 @@ const LeaveForm = ({ closeModal, onLeaveApplied }) => {
     axios
       .post(`${BACKEND_URL}/api/employee/apply-leave`, form)
       .then((res) => {
-        console.log(res);
         setTimeout(() => {
           toast.success(res.data.message);
         }, 2000);
@@ -112,6 +112,7 @@ const LeaveForm = ({ closeModal, onLeaveApplied }) => {
           </Button>
         </div>
       </Form>
+
       <Toaster
         position="top-center"
         toastOptions={{

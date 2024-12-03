@@ -14,7 +14,6 @@ const router = require("./Controller/EmployeeController");
 
 app.use("/api", router);
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running on the port : ${PORT}`);
 });
